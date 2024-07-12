@@ -6,7 +6,7 @@ on:
 jobs: 
   cypress-electron-tests: 
     runs-on: ubuntu-latest 
-    container:
+    container:  
       image: cypress/browsers:node-20.14.0-chrome-126.0.6478.114-1-ff-127.0.1-edge-126.0.2592.61-1
       options: --user 1001
       
@@ -18,8 +18,8 @@ jobs:
         run: yarn install 
 
       - name: run E2E tests
-        run: ${{github.event.inputs.cli}}
-
+        run: ${{ github.event.inputs.cli }}
+        
     env:
       TARGET_TOKEN_ELECTRON: ${{ secrets.TARGET_TOKEN_ELECTRON }}
 
@@ -38,13 +38,13 @@ jobs:
         run: yarn install 
 
       - name: run E2E tests
-        run: ${{github.event.inputs.cli}}
-
+        run: ${{ github.event.inputs.cli }}
+        
     env:
       TARGET_TOKEN_CHROME: ${{ secrets.TARGET_TOKEN_CHROME }}
 
   cypress-firefox-tests: 
-    needs:  cypress-chrome-tests
+    needs: cypress-chrome-tests
     runs-on: ubuntu-latest 
     container:
       image: cypress/browsers:node-20.14.0-chrome-126.0.6478.114-1-ff-127.0.1-edge-126.0.2592.61-1
@@ -58,10 +58,7 @@ jobs:
         run: yarn install 
 
       - name: run E2E tests
-        run: ${{github.event.inputs.cli}}
-
+        run: ${{ github.event.inputs.cli }}
+  
     env:
       TARGET_TOKEN_FIREFOX: ${{ secrets.TARGET_TOKEN_FIREFOX }}
-      
-      
-      
