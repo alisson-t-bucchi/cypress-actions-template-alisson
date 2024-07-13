@@ -20,10 +20,10 @@ jobs:
       - name: run E2E tests
         run: ${{ github.event.inputs.cli }}
         
-    env:
-      TARGET_TOKEN_ELECTRON: ${{ secrets.TARGET_TOKEN_ELECTRON }}
+env:
+  TARGET_TOKEN_ELECTRON: ${{ secrets.TARGET_TOKEN_ELECTRON }}
 
-  cypress-chrome-tests: 
+cypress-chrome-tests: 
     needs: cypress-electron-tests
     runs-on: ubuntu-latest 
     container:
@@ -40,8 +40,8 @@ jobs:
       - name: run E2E tests
         run: ${{ github.event.inputs.cli }}
         
-    env:
-      TARGET_TOKEN_CHROME: ${{ secrets.TARGET_TOKEN_CHROME }}
+env:
+  TARGET_TOKEN_CHROME: ${{ secrets.TARGET_TOKEN_CHROME }}
 
   cypress-firefox-tests: 
     needs: cypress-chrome-tests
@@ -60,6 +60,6 @@ jobs:
       - name: run E2E tests
         run: ${{ github.event.inputs.cli }}
   
-    env:
-      TARGET_TOKEN_FIREFOX: ${{ secrets.TARGET_TOKEN_FIREFOX }}
+env:
+  TARGET_TOKEN_FIREFOX: ${{ secrets.TARGET_TOKEN_FIREFOX }}
 
