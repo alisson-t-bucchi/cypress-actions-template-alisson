@@ -24,7 +24,7 @@ jobs:
       TARGET_TOKEN_ELECTRON: ${{ secrets.TARGET_TOKEN_ELECTRON }}
 
   cypress-chrome-tests: 
-    needs: cypress-electron-tests
+    #needs: cypress-electron-tests
     runs-on: ubuntu-latest 
     container:
       image: cypress/browsers:node-20.14.0-chrome-126.0.6478.114-1-ff-127.0.1-edge-126.0.2592.61-1
@@ -44,7 +44,7 @@ jobs:
       TARGET_TOKEN_CHROME: ${{ secrets.TARGET_TOKEN_CHROME }}
 
   cypress-firefox-tests: 
-    needs: cypress-chrome-tests
+    #needs: cypress-chrome-tests
     runs-on: ubuntu-latest 
     container:
       image: cypress/browsers:node-20.14.0-chrome-126.0.6478.114-1-ff-127.0.1-edge-126.0.2592.61-1
